@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DINZXX RTM BOOMBOX</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{
+    background:#0f0f0f;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+.container{
+    width:100%;
+    max-width:430px;
+    background:#151515;
+    border:1px solid #2a2a2a;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(255,128,0,.28);
+}
+.header{
+    background:linear-gradient(135deg,#ff6a00,#ff9500);
+    padding:28px;
+    text-align:center;
+}
+.header h1{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+.header p{
+    margin-top:5px;
+    font-size:14px;
+    opacity:.95;
+}
+.content{
+    padding:25px;
+}
+.platforms{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:22px;
+}
+.platform{
+    width:78px;
+    background:#1f1f1f;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:10px 5px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(255,128,0,.08);
+}
+.platform .icon{
+    font-size:28px;
+    margin-bottom:6px;
+}
+.platform span{
+    font-size:12px;
+    font-weight:700;
+}
+label{
+    display:block;
+    margin-bottom:10px;
+    color:#ffb366;
+    font-weight:700;
+}
+input{
+    width:100%;
+    padding:16px 18px;
+    border-radius:16px;
+    border:1px solid #333;
+    background:#1f1f1f;
+    color:#fff;
+    font-size:14px;
+}
+input:focus{
+    outline:none;
+    border-color:#ff8800;
+    box-shadow:0 0 12px rgba(255,136,0,.3);
+}
+.btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+}
+.btn-convert{
+    background:linear-gradient(135deg,#ff6a00,#ff9500);
+    color:#fff;
+    margin-top:18px;
+}
+.result{
+    display:none;
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:18px;
+    margin-top:22px;
+}
+.result h3{
+    color:#ffb366;
+    margin-bottom:12px;
+    font-size:16px;
+}
+.url-box{
+    background:#111;
+    border:1px solid #333;
+    border-radius:14px;
+    padding:14px;
+    font-size:13px;
+    word-break:break-all;
+    color:#ffa64d;
+    margin-bottom:15px;
+}
+.btn-copy{
+    background:#25D366;
+    color:#fff;
+}
+.footer{
+    text-align:center;
+    padding:15px;
+    color:#777;
+    font-size:12px;
+    border-top:1px solid #222;
+}
+.badge{
+    display:inline-block;
+    background:rgba(255,136,0,.15);
+    color:#ffb366;
+    border:1px solid rgba(255,136,0,.35);
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:12px;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>DINZXX RTM</h1>
+        <p>BOOMBOX LINK GENERATOR</p>
+        <div class="badge">Premium Modern UI</div>
+    </div>
+
+    <div class="content">
+
+        <div class="platforms">
+            <div class="platform">
+                <div class="icon">▶️</div>
+                <span>YouTube</span>
+            </div>
+            <div class="platform">
+                <div class="icon">🎵</div>
+                <span>TikTok</span>
+            </div>
+            <div class="platform">
+                <div class="icon">🟢</div>
+                <span>Spotify</span>
+            </div>
+        </div>
+
+        <label>Masukkan Link</label>
+        <input type="text" id="linkInput" placeholder="https://youtube.com/...">
+
+        <button class="btn btn-convert" onclick="convertLink()">🚀 Convert ke Boombox</button>
+
+        <div class="result" id="resultBox">
+            <h3>🎧 Link Boombox Siap Pakai</h3>
+            <div class="url-box" id="resultUrl"></div>
+            <button class="btn btn-copy" onclick="copyUrl()">📋 Copy URL</button>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        GTA SA:MP • DINZXX RTM • Premium Version
+    </div>
+</div>
+
+<script>
+function convertLink(){
+    const input = document.getElementById('linkInput').value.trim();
+
+    if(!input){
+        alert('Masukkan link terlebih dahulu!');
+        return;
+    }
+
+    const random = Math.random().toString(36).substring(2,10);
+    const result = `https://top4top.io/m_${random}.mp3`;
+
+    document.getElementById('resultUrl').innerText = result;
+    document.getElementById('resultBox').style.display = 'block';
+}
+
+function copyUrl(){
+    const text = document.getElementById('resultUrl').innerText;
+    navigator.clipboard.writeText(text);
+    alert('Link berhasil disalin!');
+}
+</script>
+
+</body>
+</html>
